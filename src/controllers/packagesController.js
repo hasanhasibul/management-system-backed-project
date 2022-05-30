@@ -21,7 +21,15 @@ exports.readPackage = (req,res)=>{
         }
     })
 }
-
+exports.readPackageName = (req,res)=>{
+    packageModel.find({},{packageName:1},(error,data)=>{
+        if (error) {
+            res.status(401).json({status:"fail",data:error})
+        } else {
+            res.status(201).json({status:"success",data:data})
+        }
+    })
+}
 
 exports.updatePackage = (req,res)=>{
     const id = req.body['id'];
@@ -45,6 +53,16 @@ exports.updatePackage = (req,res)=>{
     })
 }
 
+exports.readPackageById = (req,res)=>{
+    const id = req.body.id;
+    packageModel.find({_id:id},(error,data)=>{
+        if (error) {
+            res.status(401).json({status:"fail",data:error})
+        } else {
+            res.status(201).json({status:"success",data:data})
+        }
+    })
+}
 exports.deletePackage = (req,res)=>{
     const id = req.body['id'];
     packageModel.remove({_id:id},{ upsert:true},(error,data)=>{

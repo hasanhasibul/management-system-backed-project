@@ -1,7 +1,7 @@
 const mongoose =  require('mongoose');
 const scheduleSchema =  mongoose.Schema({
     memberName:{type:String},
-    dow:{type:String},
+    dow:{type:Array},
     mf:{type:String},
     mt:{type:String},
     tf:{type:Date},

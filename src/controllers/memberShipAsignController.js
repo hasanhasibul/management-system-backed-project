@@ -36,6 +36,16 @@ exports.readMembership = (req, res) => {
         }
     })
 }
+exports.readmembershipById = (req,res)=>{
+    const id = req.body.id;
+    memberShipModel.find({_id:id},(error,data)=>{
+        if (error) {
+            res.status(401).json({status:"fail",data:error})
+        } else {
+            res.status(201).json({status:"success",data:data})
+        }
+    })
+}
 
 exports.updateMembership = (req, res) => {
     const id = req.body['id'];
