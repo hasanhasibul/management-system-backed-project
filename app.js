@@ -52,7 +52,9 @@ mongoose.connect(URI,OPTION,(error)=>{
 app.use('/api/v1',router);
 
 // undefine route
-
+app.use('/',(req,res)=>{
+    res.status(200).json({status:'running server'})
+})
 app.use('*',(req,res)=>{
     res.status(404).json({status:'fail',data:"Not Found"})
 })
