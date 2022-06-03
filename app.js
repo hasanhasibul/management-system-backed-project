@@ -24,7 +24,7 @@ const limiter = rateLimit({
 
 // middleware implement 
 const corsOptions ={
-    origin:'http://localhost:3000', 
+    origin:'https://vast-journey-49790.herokuapp.com/', 
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
