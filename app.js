@@ -23,12 +23,8 @@ const limiter = rateLimit({
 })
 
 // middleware implement 
-const corsOptions ={
-    origin:'https://vast-journey-49790.herokuapp.com/', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
-}
-app.use(cors(corsOptions));
+
+app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(mongoSanitize());
@@ -37,13 +33,13 @@ app.use(hpp());
 app.use(xssClean());
 app.use(limiter);
 
-// mongodb connections 
+// mongodb connections membership123
 
 const mongoose = require('mongoose')
 
-const URI = "mongodb://127.0.0.1:27017/membershipManagement";
-const OPTION = {user:'',pass:'',autoIndex:true}
-mongoose.connect(URI,OPTION,(error)=>{
+const URI = "mongodb+srv://membership:membership123@cluster0.ezexp.mongodb.net/membershipManagement?retryWrites=true&w=majority";
+const OPTION = {user:'',pass:'',autoIndex:true,useNewUrlParser: true, useUnifiedTopology: true}
+mongoose.connect(URI,{ useNewUrlParser: true },OPTION,(error)=>{
     if(error){
         console.log(error);
     }
