@@ -40,8 +40,10 @@ router.get('/readPackageName',verifyAuthMiddleware.verifyAuthToken,packagesContr
 // plan api end point 
 router.post('/createPlan',verifyAuthMiddleware.verifyAuthToken,planController.createPlan);
 router.get('/readPlan',verifyAuthMiddleware.verifyAuthToken,planController.readPlan);
+router.get('/readPlanType',verifyAuthMiddleware.verifyAuthToken,planController.readPlanType);
 router.post('/updatePlan',verifyAuthMiddleware.verifyAuthToken,planController.updatePlan);
 router.post('/deletePlan',verifyAuthMiddleware.verifyAuthToken,planController.deletePlan);
+router.post('/readPlanById',verifyAuthMiddleware.verifyAuthToken,planController.readPlanById);
 
 // membership api end point 
 router.post('/createMembership',verifyAuthMiddleware.verifyAuthToken,memberShipAsignController.createMembership);

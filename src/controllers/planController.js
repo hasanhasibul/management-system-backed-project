@@ -21,8 +21,25 @@ exports.readPlan = (req,res)=>{
         }
     })
 }
-
-
+exports.readPlanById = (req,res)=>{
+    const id = req.body.id;
+    planModel.find({_id:id},(error,data)=>{
+        if (error) {
+            res.status(401).json({status:"fail",data:error})
+        } else {
+            res.status(201).json({status:"success",data:data})
+        }
+    })
+}
+exports.readPlanType = (req,res)=>{
+    planModel.find({},{planType:1},(error,data)=>{
+        if (error) {
+            res.status(401).json({status:"fail",data:error})
+        } else {
+            res.status(201).json({status:"success",data:data})
+        }
+    })
+}
 exports.updatePlan = (req,res)=>{
     const id = req.body['id'];
     const planType = req.body['planType'];
